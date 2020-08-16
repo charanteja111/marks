@@ -1,0 +1,81 @@
+<form [formGroup]="admission">
+<div class="bgm">
+    <div>
+        <h4 style="font-weight: bold">Rigstration Form</h4>
+    </div>
+    <div>
+        First name : <input type="text" placeholder="first name" class="form-control" formControlName="frstname">
+    </div> 
+    <div style="color: red" *ngIf=" admission.controls.frstname.touched && admission.controls.frstname.invalid && admission.controls.frstname.errors.required">
+        first name is required
+    </div>
+    <div style="color: red" *ngIf=" admission.controls.frstname.touched && admission.controls.frstname.invalid && admission.controls.frstname.errors.maxlength">
+            max 20 characters
+    </div>
+    <div style="color: red" *ngIf=" admission.controls.frstname.touched && admission.controls.frstname.invalid && admission.controls.frstname.errors.pattern">
+            accepts only alphabets a-zA-Z
+    </div>
+    
+    <div>
+        Last Name : <input type="text" placeholder="Last Name"  class="form-control" formControlName="lstname">
+    </div>
+        <div style="color: red" *ngIf=" admission.controls.lstname.touched && admission.controls.lstname.invalid && admission.controls.lstname.errors.required">
+        last name is required
+        </div>
+        <div style="color: red" *ngIf=" admission.controls.lstname.touched && admission.controls.lstname.invalid && admission.controls.lstname.errors.maxlength">
+                max 20 characters
+        </div>
+        <div style="color: red" *ngIf=" admission.controls.lstname.touched && admission.controls.lstname.invalid && admission.controls.lstname.errors.pattern">
+                accepts only alphabets a-zA-Z
+        </div>
+
+
+
+    <div>
+        Class : <input type="text" placeholder="class"  class="form-control" formControlName="clss">
+    </div>
+
+
+        <div style="color: red" *ngIf=" admission.controls.clss.touched && admission.controls.clss.invalid && admission.controls.clss.errors.required">
+            class is required
+        </div>
+        <div style="color: red" *ngIf=" admission.controls.clss.touched && admission.controls.clss.invalid && admission.controls.clss.errors.pattern">
+                accepts only alphabets && numeric
+        </div>
+
+
+
+    <div>
+        Year of passing : <input type="text" placeholder="Year of passing"  class="form-control" formControlName="yearofps">
+    </div>
+
+    <div style="color: red" *ngIf=" admission.controls.yearofps.touched && admission.controls.yearofps.invalid && admission.controls.yearofps.errors.required">
+         year of pass is required   
+    </div>
+        <div style="color: red" *ngIf=" admission.controls.yearofps.touched && admission.controls.yearofps.invalid && admission.controls.yearofps.errors.pattern">
+                accepts only up to 2017
+        </div>
+
+
+
+
+
+
+    <div>
+        Percentage of marks : <input type="text" placeholder="Percentage of marks"  class="form-control" formControlName="prctofmrks">
+    </div>
+    
+    <div style="color: red" *ngIf="admission.controls.prctofmrks.touched && admission.controls.prctofmrks.invalid && admission.controls.prctofmrks.errors.required">
+            Percentage is required
+        </div>
+        <div style="color: red" *ngIf=" admission.controls.prctofmrks.touched && admission.controls.prctofmrks.invalid && admission.controls.prctofmrks.errors.pattern">
+                accepts only numeric
+        </div>
+    
+    
+    
+    <br>
+
+    <button class="btn btn-success" [disabled]="!admission.valid">submit</button>
+</div>
+</form>

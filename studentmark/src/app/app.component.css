@@ -1,0 +1,7 @@
+.text-success{
+    color: rgb(4, 219, 4);
+    font-style: inherit
+}
+.text-danger{
+    color: red;
+}

@@ -1,0 +1,29 @@
+<div>
+  <table class="table table-bordered">
+    <thead>
+      <tr style="font-weight: bold">Students Result Board</tr>
+      <tr style="font-style:italic">
+        <th>Student Name</th>
+        <th>Roll Number</th>
+        <th>Total Marks</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of (student|sort)" [ngClass]="{'text-success':data.marks.English && data.marks.Science && data.marks.Maths > 20,
+                                                          'text-danger' :data.marks.English && data.marks.Science && data.marks.Maths < 20}">
+        <td>{{data.name|titlecase}}</td>
+        <td>{{data.rollNumber}}</td>
+        <td>{{data.marks.Maths+data.marks.English+data.marks.Science}}</td>
+        <td *ngIf="data.marks.English && data.marks.Science && data.marks.Maths > 20; else abc">pass</td>
+        <ng-template #abc>
+          <td>fail</td>
+        </ng-template>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br><h3><a routerLink ="admission" style="position: relative; left:100px;">Admission</a></h3>
+
+<router-outlet></router-outlet>
